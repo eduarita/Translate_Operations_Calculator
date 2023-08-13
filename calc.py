@@ -174,9 +174,11 @@ while calc:
 
   # Se realiza Tokenización y se imprimen los datos
   for tok in lexer:
-    formatedTokens.append((tok.type, tok.value))
+    formatedTokens.append((tok.lexpos, tok.type, tok.value))
 
-  for tokenType, tokenValue in formatedTokens:
-    print(f" {tokenType}: {tokenValue}", end=", ")
+
+  for tokenPosition, tokenType, tokenValue in formatedTokens:
+    
+    print(f"Token #{tokenPosition}= Tipo:{tokenType}, Valor:{tokenValue}", end=", \n")
   print()
 
