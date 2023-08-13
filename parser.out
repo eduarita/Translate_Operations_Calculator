@@ -1,0 +1,588 @@
+Created by PLY version 3.11 (http://www.dabeaz.com/ply)
+
+Grammar
+
+Rule 0     S' -> instrucciones
+Rule 1     instrucciones -> instruccion instrucciones
+Rule 2     instrucciones -> instruccion
+Rule 3     instruccion -> OPERAR CORCHIZQ expresion CORCHDER FINCAD
+Rule 4     instruccion -> expresion
+Rule 5     expresion -> expresion SUMA expresion
+Rule 6     expresion -> expresion RESTA expresion
+Rule 7     expresion -> expresion MULTIPLICACION expresion
+Rule 8     expresion -> expresion DIVISION expresion
+Rule 9     expresion -> expresion POTENCIA expresion
+Rule 10    expresion -> RESTA expresion
+Rule 11    expresion -> LLAVEIZQ expresion LLAVEDER
+Rule 12    expresion -> NUMERO
+Rule 13    expresion -> DECIMAL
+
+Terminals, with rules where they appear
+
+CORCHDER             : 3
+CORCHIZQ             : 3
+DECIMAL              : 13
+DIVISION             : 8
+FINCAD               : 3
+LLAVEDER             : 11
+LLAVEIZQ             : 11
+MULTIPLICACION       : 7
+NUMERO               : 12
+OPERAR               : 3
+POTENCIA             : 9
+RESTA                : 6 10
+SUMA                 : 5
+error                : 
+
+Nonterminals, with rules where they appear
+
+expresion            : 3 4 5 5 6 6 7 7 8 8 9 9 10 11
+instruccion          : 1 2
+instrucciones        : 1 0
+
+Parsing method: LALR
+
+state 0
+
+    (0) S' -> . instrucciones
+    (1) instrucciones -> . instruccion instrucciones
+    (2) instrucciones -> . instruccion
+    (3) instruccion -> . OPERAR CORCHIZQ expresion CORCHDER FINCAD
+    (4) instruccion -> . expresion
+    (5) expresion -> . expresion SUMA expresion
+    (6) expresion -> . expresion RESTA expresion
+    (7) expresion -> . expresion MULTIPLICACION expresion
+    (8) expresion -> . expresion DIVISION expresion
+    (9) expresion -> . expresion POTENCIA expresion
+    (10) expresion -> . RESTA expresion
+    (11) expresion -> . LLAVEIZQ expresion LLAVEDER
+    (12) expresion -> . NUMERO
+    (13) expresion -> . DECIMAL
+
+    OPERAR          shift and go to state 3
+    RESTA           shift and go to state 5
+    LLAVEIZQ        shift and go to state 6
+    NUMERO          shift and go to state 7
+    DECIMAL         shift and go to state 8
+
+    instrucciones                  shift and go to state 1
+    instruccion                    shift and go to state 2
+    expresion                      shift and go to state 4
+
+state 1
+
+    (0) S' -> instrucciones .
+
+
+
+state 2
+
+    (1) instrucciones -> instruccion . instrucciones
+    (2) instrucciones -> instruccion .
+    (1) instrucciones -> . instruccion instrucciones
+    (2) instrucciones -> . instruccion
+    (3) instruccion -> . OPERAR CORCHIZQ expresion CORCHDER FINCAD
+    (4) instruccion -> . expresion
+    (5) expresion -> . expresion SUMA expresion
+    (6) expresion -> . expresion RESTA expresion
+    (7) expresion -> . expresion MULTIPLICACION expresion
+    (8) expresion -> . expresion DIVISION expresion
+    (9) expresion -> . expresion POTENCIA expresion
+    (10) expresion -> . RESTA expresion
+    (11) expresion -> . LLAVEIZQ expresion LLAVEDER
+    (12) expresion -> . NUMERO
+    (13) expresion -> . DECIMAL
+
+    $end            reduce using rule 2 (instrucciones -> instruccion .)
+    OPERAR          shift and go to state 3
+    RESTA           shift and go to state 5
+    LLAVEIZQ        shift and go to state 6
+    NUMERO          shift and go to state 7
+    DECIMAL         shift and go to state 8
+
+    instruccion                    shift and go to state 2
+    instrucciones                  shift and go to state 9
+    expresion                      shift and go to state 4
+
+state 3
+
+    (3) instruccion -> OPERAR . CORCHIZQ expresion CORCHDER FINCAD
+
+    CORCHIZQ        shift and go to state 10
+
+
+state 4
+
+    (4) instruccion -> expresion .
+    (5) expresion -> expresion . SUMA expresion
+    (6) expresion -> expresion . RESTA expresion
+    (7) expresion -> expresion . MULTIPLICACION expresion
+    (8) expresion -> expresion . DIVISION expresion
+    (9) expresion -> expresion . POTENCIA expresion
+
+  ! shift/reduce conflict for RESTA resolved as shift
+    OPERAR          reduce using rule 4 (instruccion -> expresion .)
+    LLAVEIZQ        reduce using rule 4 (instruccion -> expresion .)
+    NUMERO          reduce using rule 4 (instruccion -> expresion .)
+    DECIMAL         reduce using rule 4 (instruccion -> expresion .)
+    $end            reduce using rule 4 (instruccion -> expresion .)
+    SUMA            shift and go to state 11
+    RESTA           shift and go to state 12
+    MULTIPLICACION  shift and go to state 13
+    DIVISION        shift and go to state 14
+    POTENCIA        shift and go to state 15
+
+  ! RESTA           [ reduce using rule 4 (instruccion -> expresion .) ]
+
+
+state 5
+
+    (10) expresion -> RESTA . expresion
+    (5) expresion -> . expresion SUMA expresion
+    (6) expresion -> . expresion RESTA expresion
+    (7) expresion -> . expresion MULTIPLICACION expresion
+    (8) expresion -> . expresion DIVISION expresion
+    (9) expresion -> . expresion POTENCIA expresion
+    (10) expresion -> . RESTA expresion
+    (11) expresion -> . LLAVEIZQ expresion LLAVEDER
+    (12) expresion -> . NUMERO
+    (13) expresion -> . DECIMAL
+
+    RESTA           shift and go to state 5
+    LLAVEIZQ        shift and go to state 6
+    NUMERO          shift and go to state 7
+    DECIMAL         shift and go to state 8
+
+    expresion                      shift and go to state 16
+
+state 6
+
+    (11) expresion -> LLAVEIZQ . expresion LLAVEDER
+    (5) expresion -> . expresion SUMA expresion
+    (6) expresion -> . expresion RESTA expresion
+    (7) expresion -> . expresion MULTIPLICACION expresion
+    (8) expresion -> . expresion DIVISION expresion
+    (9) expresion -> . expresion POTENCIA expresion
+    (10) expresion -> . RESTA expresion
+    (11) expresion -> . LLAVEIZQ expresion LLAVEDER
+    (12) expresion -> . NUMERO
+    (13) expresion -> . DECIMAL
+
+    RESTA           shift and go to state 5
+    LLAVEIZQ        shift and go to state 6
+    NUMERO          shift and go to state 7
+    DECIMAL         shift and go to state 8
+
+    expresion                      shift and go to state 17
+
+state 7
+
+    (12) expresion -> NUMERO .
+
+    SUMA            reduce using rule 12 (expresion -> NUMERO .)
+    RESTA           reduce using rule 12 (expresion -> NUMERO .)
+    MULTIPLICACION  reduce using rule 12 (expresion -> NUMERO .)
+    DIVISION        reduce using rule 12 (expresion -> NUMERO .)
+    POTENCIA        reduce using rule 12 (expresion -> NUMERO .)
+    OPERAR          reduce using rule 12 (expresion -> NUMERO .)
+    LLAVEIZQ        reduce using rule 12 (expresion -> NUMERO .)
+    NUMERO          reduce using rule 12 (expresion -> NUMERO .)
+    DECIMAL         reduce using rule 12 (expresion -> NUMERO .)
+    $end            reduce using rule 12 (expresion -> NUMERO .)
+    LLAVEDER        reduce using rule 12 (expresion -> NUMERO .)
+    CORCHDER        reduce using rule 12 (expresion -> NUMERO .)
+
+
+state 8
+
+    (13) expresion -> DECIMAL .
+
+    SUMA            reduce using rule 13 (expresion -> DECIMAL .)
+    RESTA           reduce using rule 13 (expresion -> DECIMAL .)
+    MULTIPLICACION  reduce using rule 13 (expresion -> DECIMAL .)
+    DIVISION        reduce using rule 13 (expresion -> DECIMAL .)
+    POTENCIA        reduce using rule 13 (expresion -> DECIMAL .)
+    OPERAR          reduce using rule 13 (expresion -> DECIMAL .)
+    LLAVEIZQ        reduce using rule 13 (expresion -> DECIMAL .)
+    NUMERO          reduce using rule 13 (expresion -> DECIMAL .)
+    DECIMAL         reduce using rule 13 (expresion -> DECIMAL .)
+    $end            reduce using rule 13 (expresion -> DECIMAL .)
+    LLAVEDER        reduce using rule 13 (expresion -> DECIMAL .)
+    CORCHDER        reduce using rule 13 (expresion -> DECIMAL .)
+
+
+state 9
+
+    (1) instrucciones -> instruccion instrucciones .
+
+    $end            reduce using rule 1 (instrucciones -> instruccion instrucciones .)
+
+
+state 10
+
+    (3) instruccion -> OPERAR CORCHIZQ . expresion CORCHDER FINCAD
+    (5) expresion -> . expresion SUMA expresion
+    (6) expresion -> . expresion RESTA expresion
+    (7) expresion -> . expresion MULTIPLICACION expresion
+    (8) expresion -> . expresion DIVISION expresion
+    (9) expresion -> . expresion POTENCIA expresion
+    (10) expresion -> . RESTA expresion
+    (11) expresion -> . LLAVEIZQ expresion LLAVEDER
+    (12) expresion -> . NUMERO
+    (13) expresion -> . DECIMAL
+
+    RESTA           shift and go to state 5
+    LLAVEIZQ        shift and go to state 6
+    NUMERO          shift and go to state 7
+    DECIMAL         shift and go to state 8
+
+    expresion                      shift and go to state 18
+
+state 11
+
+    (5) expresion -> expresion SUMA . expresion
+    (5) expresion -> . expresion SUMA expresion
+    (6) expresion -> . expresion RESTA expresion
+    (7) expresion -> . expresion MULTIPLICACION expresion
+    (8) expresion -> . expresion DIVISION expresion
+    (9) expresion -> . expresion POTENCIA expresion
+    (10) expresion -> . RESTA expresion
+    (11) expresion -> . LLAVEIZQ expresion LLAVEDER
+    (12) expresion -> . NUMERO
+    (13) expresion -> . DECIMAL
+
+    RESTA           shift and go to state 5
+    LLAVEIZQ        shift and go to state 6
+    NUMERO          shift and go to state 7
+    DECIMAL         shift and go to state 8
+
+    expresion                      shift and go to state 19
+
+state 12
+
+    (6) expresion -> expresion RESTA . expresion
+    (5) expresion -> . expresion SUMA expresion
+    (6) expresion -> . expresion RESTA expresion
+    (7) expresion -> . expresion MULTIPLICACION expresion
+    (8) expresion -> . expresion DIVISION expresion
+    (9) expresion -> . expresion POTENCIA expresion
+    (10) expresion -> . RESTA expresion
+    (11) expresion -> . LLAVEIZQ expresion LLAVEDER
+    (12) expresion -> . NUMERO
+    (13) expresion -> . DECIMAL
+
+    RESTA           shift and go to state 5
+    LLAVEIZQ        shift and go to state 6
+    NUMERO          shift and go to state 7
+    DECIMAL         shift and go to state 8
+
+    expresion                      shift and go to state 20
+
+state 13
+
+    (7) expresion -> expresion MULTIPLICACION . expresion
+    (5) expresion -> . expresion SUMA expresion
+    (6) expresion -> . expresion RESTA expresion
+    (7) expresion -> . expresion MULTIPLICACION expresion
+    (8) expresion -> . expresion DIVISION expresion
+    (9) expresion -> . expresion POTENCIA expresion
+    (10) expresion -> . RESTA expresion
+    (11) expresion -> . LLAVEIZQ expresion LLAVEDER
+    (12) expresion -> . NUMERO
+    (13) expresion -> . DECIMAL
+
+    RESTA           shift and go to state 5
+    LLAVEIZQ        shift and go to state 6
+    NUMERO          shift and go to state 7
+    DECIMAL         shift and go to state 8
+
+    expresion                      shift and go to state 21
+
+state 14
+
+    (8) expresion -> expresion DIVISION . expresion
+    (5) expresion -> . expresion SUMA expresion
+    (6) expresion -> . expresion RESTA expresion
+    (7) expresion -> . expresion MULTIPLICACION expresion
+    (8) expresion -> . expresion DIVISION expresion
+    (9) expresion -> . expresion POTENCIA expresion
+    (10) expresion -> . RESTA expresion
+    (11) expresion -> . LLAVEIZQ expresion LLAVEDER
+    (12) expresion -> . NUMERO
+    (13) expresion -> . DECIMAL
+
+    RESTA           shift and go to state 5
+    LLAVEIZQ        shift and go to state 6
+    NUMERO          shift and go to state 7
+    DECIMAL         shift and go to state 8
+
+    expresion                      shift and go to state 22
+
+state 15
+
+    (9) expresion -> expresion POTENCIA . expresion
+    (5) expresion -> . expresion SUMA expresion
+    (6) expresion -> . expresion RESTA expresion
+    (7) expresion -> . expresion MULTIPLICACION expresion
+    (8) expresion -> . expresion DIVISION expresion
+    (9) expresion -> . expresion POTENCIA expresion
+    (10) expresion -> . RESTA expresion
+    (11) expresion -> . LLAVEIZQ expresion LLAVEDER
+    (12) expresion -> . NUMERO
+    (13) expresion -> . DECIMAL
+
+    RESTA           shift and go to state 5
+    LLAVEIZQ        shift and go to state 6
+    NUMERO          shift and go to state 7
+    DECIMAL         shift and go to state 8
+
+    expresion                      shift and go to state 23
+
+state 16
+
+    (10) expresion -> RESTA expresion .
+    (5) expresion -> expresion . SUMA expresion
+    (6) expresion -> expresion . RESTA expresion
+    (7) expresion -> expresion . MULTIPLICACION expresion
+    (8) expresion -> expresion . DIVISION expresion
+    (9) expresion -> expresion . POTENCIA expresion
+
+    SUMA            reduce using rule 10 (expresion -> RESTA expresion .)
+    RESTA           reduce using rule 10 (expresion -> RESTA expresion .)
+    MULTIPLICACION  reduce using rule 10 (expresion -> RESTA expresion .)
+    DIVISION        reduce using rule 10 (expresion -> RESTA expresion .)
+    POTENCIA        reduce using rule 10 (expresion -> RESTA expresion .)
+    OPERAR          reduce using rule 10 (expresion -> RESTA expresion .)
+    LLAVEIZQ        reduce using rule 10 (expresion -> RESTA expresion .)
+    NUMERO          reduce using rule 10 (expresion -> RESTA expresion .)
+    DECIMAL         reduce using rule 10 (expresion -> RESTA expresion .)
+    $end            reduce using rule 10 (expresion -> RESTA expresion .)
+    LLAVEDER        reduce using rule 10 (expresion -> RESTA expresion .)
+    CORCHDER        reduce using rule 10 (expresion -> RESTA expresion .)
+
+  ! SUMA            [ shift and go to state 11 ]
+  ! RESTA           [ shift and go to state 12 ]
+  ! MULTIPLICACION  [ shift and go to state 13 ]
+  ! DIVISION        [ shift and go to state 14 ]
+  ! POTENCIA        [ shift and go to state 15 ]
+
+
+state 17
+
+    (11) expresion -> LLAVEIZQ expresion . LLAVEDER
+    (5) expresion -> expresion . SUMA expresion
+    (6) expresion -> expresion . RESTA expresion
+    (7) expresion -> expresion . MULTIPLICACION expresion
+    (8) expresion -> expresion . DIVISION expresion
+    (9) expresion -> expresion . POTENCIA expresion
+
+    LLAVEDER        shift and go to state 24
+    SUMA            shift and go to state 11
+    RESTA           shift and go to state 12
+    MULTIPLICACION  shift and go to state 13
+    DIVISION        shift and go to state 14
+    POTENCIA        shift and go to state 15
+
+
+state 18
+
+    (3) instruccion -> OPERAR CORCHIZQ expresion . CORCHDER FINCAD
+    (5) expresion -> expresion . SUMA expresion
+    (6) expresion -> expresion . RESTA expresion
+    (7) expresion -> expresion . MULTIPLICACION expresion
+    (8) expresion -> expresion . DIVISION expresion
+    (9) expresion -> expresion . POTENCIA expresion
+
+    CORCHDER        shift and go to state 25
+    SUMA            shift and go to state 11
+    RESTA           shift and go to state 12
+    MULTIPLICACION  shift and go to state 13
+    DIVISION        shift and go to state 14
+    POTENCIA        shift and go to state 15
+
+
+state 19
+
+    (5) expresion -> expresion SUMA expresion .
+    (5) expresion -> expresion . SUMA expresion
+    (6) expresion -> expresion . RESTA expresion
+    (7) expresion -> expresion . MULTIPLICACION expresion
+    (8) expresion -> expresion . DIVISION expresion
+    (9) expresion -> expresion . POTENCIA expresion
+
+    SUMA            reduce using rule 5 (expresion -> expresion SUMA expresion .)
+    RESTA           reduce using rule 5 (expresion -> expresion SUMA expresion .)
+    OPERAR          reduce using rule 5 (expresion -> expresion SUMA expresion .)
+    LLAVEIZQ        reduce using rule 5 (expresion -> expresion SUMA expresion .)
+    NUMERO          reduce using rule 5 (expresion -> expresion SUMA expresion .)
+    DECIMAL         reduce using rule 5 (expresion -> expresion SUMA expresion .)
+    $end            reduce using rule 5 (expresion -> expresion SUMA expresion .)
+    LLAVEDER        reduce using rule 5 (expresion -> expresion SUMA expresion .)
+    CORCHDER        reduce using rule 5 (expresion -> expresion SUMA expresion .)
+    MULTIPLICACION  shift and go to state 13
+    DIVISION        shift and go to state 14
+    POTENCIA        shift and go to state 15
+
+  ! MULTIPLICACION  [ reduce using rule 5 (expresion -> expresion SUMA expresion .) ]
+  ! DIVISION        [ reduce using rule 5 (expresion -> expresion SUMA expresion .) ]
+  ! POTENCIA        [ reduce using rule 5 (expresion -> expresion SUMA expresion .) ]
+  ! SUMA            [ shift and go to state 11 ]
+  ! RESTA           [ shift and go to state 12 ]
+
+
+state 20
+
+    (6) expresion -> expresion RESTA expresion .
+    (5) expresion -> expresion . SUMA expresion
+    (6) expresion -> expresion . RESTA expresion
+    (7) expresion -> expresion . MULTIPLICACION expresion
+    (8) expresion -> expresion . DIVISION expresion
+    (9) expresion -> expresion . POTENCIA expresion
+
+    SUMA            reduce using rule 6 (expresion -> expresion RESTA expresion .)
+    RESTA           reduce using rule 6 (expresion -> expresion RESTA expresion .)
+    OPERAR          reduce using rule 6 (expresion -> expresion RESTA expresion .)
+    LLAVEIZQ        reduce using rule 6 (expresion -> expresion RESTA expresion .)
+    NUMERO          reduce using rule 6 (expresion -> expresion RESTA expresion .)
+    DECIMAL         reduce using rule 6 (expresion -> expresion RESTA expresion .)
+    $end            reduce using rule 6 (expresion -> expresion RESTA expresion .)
+    LLAVEDER        reduce using rule 6 (expresion -> expresion RESTA expresion .)
+    CORCHDER        reduce using rule 6 (expresion -> expresion RESTA expresion .)
+    MULTIPLICACION  shift and go to state 13
+    DIVISION        shift and go to state 14
+    POTENCIA        shift and go to state 15
+
+  ! MULTIPLICACION  [ reduce using rule 6 (expresion -> expresion RESTA expresion .) ]
+  ! DIVISION        [ reduce using rule 6 (expresion -> expresion RESTA expresion .) ]
+  ! POTENCIA        [ reduce using rule 6 (expresion -> expresion RESTA expresion .) ]
+  ! SUMA            [ shift and go to state 11 ]
+  ! RESTA           [ shift and go to state 12 ]
+
+
+state 21
+
+    (7) expresion -> expresion MULTIPLICACION expresion .
+    (5) expresion -> expresion . SUMA expresion
+    (6) expresion -> expresion . RESTA expresion
+    (7) expresion -> expresion . MULTIPLICACION expresion
+    (8) expresion -> expresion . DIVISION expresion
+    (9) expresion -> expresion . POTENCIA expresion
+
+    SUMA            reduce using rule 7 (expresion -> expresion MULTIPLICACION expresion .)
+    RESTA           reduce using rule 7 (expresion -> expresion MULTIPLICACION expresion .)
+    MULTIPLICACION  reduce using rule 7 (expresion -> expresion MULTIPLICACION expresion .)
+    DIVISION        reduce using rule 7 (expresion -> expresion MULTIPLICACION expresion .)
+    POTENCIA        reduce using rule 7 (expresion -> expresion MULTIPLICACION expresion .)
+    OPERAR          reduce using rule 7 (expresion -> expresion MULTIPLICACION expresion .)
+    LLAVEIZQ        reduce using rule 7 (expresion -> expresion MULTIPLICACION expresion .)
+    NUMERO          reduce using rule 7 (expresion -> expresion MULTIPLICACION expresion .)
+    DECIMAL         reduce using rule 7 (expresion -> expresion MULTIPLICACION expresion .)
+    $end            reduce using rule 7 (expresion -> expresion MULTIPLICACION expresion .)
+    LLAVEDER        reduce using rule 7 (expresion -> expresion MULTIPLICACION expresion .)
+    CORCHDER        reduce using rule 7 (expresion -> expresion MULTIPLICACION expresion .)
+
+  ! SUMA            [ shift and go to state 11 ]
+  ! RESTA           [ shift and go to state 12 ]
+  ! MULTIPLICACION  [ shift and go to state 13 ]
+  ! DIVISION        [ shift and go to state 14 ]
+  ! POTENCIA        [ shift and go to state 15 ]
+
+
+state 22
+
+    (8) expresion -> expresion DIVISION expresion .
+    (5) expresion -> expresion . SUMA expresion
+    (6) expresion -> expresion . RESTA expresion
+    (7) expresion -> expresion . MULTIPLICACION expresion
+    (8) expresion -> expresion . DIVISION expresion
+    (9) expresion -> expresion . POTENCIA expresion
+
+    SUMA            reduce using rule 8 (expresion -> expresion DIVISION expresion .)
+    RESTA           reduce using rule 8 (expresion -> expresion DIVISION expresion .)
+    MULTIPLICACION  reduce using rule 8 (expresion -> expresion DIVISION expresion .)
+    DIVISION        reduce using rule 8 (expresion -> expresion DIVISION expresion .)
+    POTENCIA        reduce using rule 8 (expresion -> expresion DIVISION expresion .)
+    OPERAR          reduce using rule 8 (expresion -> expresion DIVISION expresion .)
+    LLAVEIZQ        reduce using rule 8 (expresion -> expresion DIVISION expresion .)
+    NUMERO          reduce using rule 8 (expresion -> expresion DIVISION expresion .)
+    DECIMAL         reduce using rule 8 (expresion -> expresion DIVISION expresion .)
+    $end            reduce using rule 8 (expresion -> expresion DIVISION expresion .)
+    LLAVEDER        reduce using rule 8 (expresion -> expresion DIVISION expresion .)
+    CORCHDER        reduce using rule 8 (expresion -> expresion DIVISION expresion .)
+
+  ! SUMA            [ shift and go to state 11 ]
+  ! RESTA           [ shift and go to state 12 ]
+  ! MULTIPLICACION  [ shift and go to state 13 ]
+  ! DIVISION        [ shift and go to state 14 ]
+  ! POTENCIA        [ shift and go to state 15 ]
+
+
+state 23
+
+    (9) expresion -> expresion POTENCIA expresion .
+    (5) expresion -> expresion . SUMA expresion
+    (6) expresion -> expresion . RESTA expresion
+    (7) expresion -> expresion . MULTIPLICACION expresion
+    (8) expresion -> expresion . DIVISION expresion
+    (9) expresion -> expresion . POTENCIA expresion
+
+    SUMA            reduce using rule 9 (expresion -> expresion POTENCIA expresion .)
+    RESTA           reduce using rule 9 (expresion -> expresion POTENCIA expresion .)
+    MULTIPLICACION  reduce using rule 9 (expresion -> expresion POTENCIA expresion .)
+    DIVISION        reduce using rule 9 (expresion -> expresion POTENCIA expresion .)
+    POTENCIA        reduce using rule 9 (expresion -> expresion POTENCIA expresion .)
+    OPERAR          reduce using rule 9 (expresion -> expresion POTENCIA expresion .)
+    LLAVEIZQ        reduce using rule 9 (expresion -> expresion POTENCIA expresion .)
+    NUMERO          reduce using rule 9 (expresion -> expresion POTENCIA expresion .)
+    DECIMAL         reduce using rule 9 (expresion -> expresion POTENCIA expresion .)
+    $end            reduce using rule 9 (expresion -> expresion POTENCIA expresion .)
+    LLAVEDER        reduce using rule 9 (expresion -> expresion POTENCIA expresion .)
+    CORCHDER        reduce using rule 9 (expresion -> expresion POTENCIA expresion .)
+
+  ! SUMA            [ shift and go to state 11 ]
+  ! RESTA           [ shift and go to state 12 ]
+  ! MULTIPLICACION  [ shift and go to state 13 ]
+  ! DIVISION        [ shift and go to state 14 ]
+  ! POTENCIA        [ shift and go to state 15 ]
+
+
+state 24
+
+    (11) expresion -> LLAVEIZQ expresion LLAVEDER .
+
+    SUMA            reduce using rule 11 (expresion -> LLAVEIZQ expresion LLAVEDER .)
+    RESTA           reduce using rule 11 (expresion -> LLAVEIZQ expresion LLAVEDER .)
+    MULTIPLICACION  reduce using rule 11 (expresion -> LLAVEIZQ expresion LLAVEDER .)
+    DIVISION        reduce using rule 11 (expresion -> LLAVEIZQ expresion LLAVEDER .)
+    POTENCIA        reduce using rule 11 (expresion -> LLAVEIZQ expresion LLAVEDER .)
+    OPERAR          reduce using rule 11 (expresion -> LLAVEIZQ expresion LLAVEDER .)
+    LLAVEIZQ        reduce using rule 11 (expresion -> LLAVEIZQ expresion LLAVEDER .)
+    NUMERO          reduce using rule 11 (expresion -> LLAVEIZQ expresion LLAVEDER .)
+    DECIMAL         reduce using rule 11 (expresion -> LLAVEIZQ expresion LLAVEDER .)
+    $end            reduce using rule 11 (expresion -> LLAVEIZQ expresion LLAVEDER .)
+    LLAVEDER        reduce using rule 11 (expresion -> LLAVEIZQ expresion LLAVEDER .)
+    CORCHDER        reduce using rule 11 (expresion -> LLAVEIZQ expresion LLAVEDER .)
+
+
+state 25
+
+    (3) instruccion -> OPERAR CORCHIZQ expresion CORCHDER . FINCAD
+
+    FINCAD          shift and go to state 26
+
+
+state 26
+
+    (3) instruccion -> OPERAR CORCHIZQ expresion CORCHDER FINCAD .
+
+    OPERAR          reduce using rule 3 (instruccion -> OPERAR CORCHIZQ expresion CORCHDER FINCAD .)
+    RESTA           reduce using rule 3 (instruccion -> OPERAR CORCHIZQ expresion CORCHDER FINCAD .)
+    LLAVEIZQ        reduce using rule 3 (instruccion -> OPERAR CORCHIZQ expresion CORCHDER FINCAD .)
+    NUMERO          reduce using rule 3 (instruccion -> OPERAR CORCHIZQ expresion CORCHDER FINCAD .)
+    DECIMAL         reduce using rule 3 (instruccion -> OPERAR CORCHIZQ expresion CORCHDER FINCAD .)
+    $end            reduce using rule 3 (instruccion -> OPERAR CORCHIZQ expresion CORCHDER FINCAD .)
+
+WARNING: 
+WARNING: Conflicts:
+WARNING: 
+WARNING: shift/reduce conflict for RESTA in state 4 resolved as shift
