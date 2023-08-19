@@ -2,7 +2,6 @@ import shutil
 import ply.lex as lex
 import ply.yacc as yacc
 
-# lex.py se utiliza para tokenizar una cadena de entrada
 calc = True
 
 #----------ANALIZADOR LEXICO----------
@@ -28,14 +27,6 @@ tokens = [
 # Definir las expresiones regulares que identifiquen cuándo
 # Ocurren los tokens anteriores
 
-"""
-t_  en PLY se utiliza para definir un token con una expresion regular.
-
-La r significa que la cadena debe tratarse como una cadena sin procesar, 
-lo que significa que se ignorarán todos los códigos de escape.
-Ej: '\n' se tratará como un carácter de nueva línea, 
-mientras que r'\n' se tratará como los caracteres \ seguido de n.
-"""
 t_SUMA = r'\+'
 t_RESTA = r'-'
 t_MULTIPLICACION = r'\*'
@@ -48,10 +39,6 @@ t_CORCHIZQ = r'\['
 t_CORCHDER = r'\]'
 t_FINCAD = r'\$'
 
-
-# Al declarar los numeros decimales y enteros, se declaran primero los decimales
-# Luego, se declaran los enteros
-
 # Expresión regular para los números decimales
 def t_DECIMAL(token):
       #\d\.\d: Uno o más digitos seguido de PUNTO DECIMAL seguido de uno o más digitos
@@ -61,7 +48,7 @@ def t_DECIMAL(token):
 
 # Expresión regular para los números enteros
 def t_NUMERO(token):
-     #\d: Digitos del 0-9, + Coincide con 1 o más de los token anterior.
+    #\d: Digitos del 0-9, + Coincide con 1 o más de los token anterior.
     r'\d+'
     token.value = int(token.value)
     return token
